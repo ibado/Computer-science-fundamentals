@@ -6,10 +6,10 @@ class BubbleSort : Sort {
         val list = target.toMutableList()
         while (true) {
             var swapped = false
-            list.forEachIndexed { i, element ->
-                if (i == list.size - 1) return@forEachIndexed
+            for (i in 0 until (list.size - 1)) {
+                val current = list[i]
                 val next = list[i + 1]
-                if (element > next) {
+                if (current > next) {
                     list.swap(i, i + 1)
                     swapped = true
                 }
