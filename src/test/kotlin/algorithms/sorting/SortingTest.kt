@@ -15,6 +15,11 @@ class SortingTest {
         testSort(InsertionSort())
     }
 
+    @Test
+    fun mergeSort() {
+        testSort(MergeSort())
+    }
+
     private fun testSort(sort: Sort) {
         val target = listOf(2, 6, 23, 666, 0, 35)
 
