@@ -20,6 +20,11 @@ class SortingTest {
         testSort(MergeSort())
     }
 
+    @Test
+    fun quickSort() {
+        testSort(QuickSort())
+    }
+
     private fun testSort(sort: Sort) {
         val target = listOf(2, 6, 23, 666, 0, 35)
 
