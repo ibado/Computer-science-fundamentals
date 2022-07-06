@@ -3,13 +3,11 @@ package algorithms.sorting
 class MergeSort : Sort {
 
     override fun <T : Comparable<T>> invoke(target: List<T>): List<T> {
-        val list = target.toMutableList()
+        if (target.size == 1) return target
 
-        if (list.size == 1) return list
-
-        val mid = list.size / 2
-        val left = this(list.subList(0, mid))
-        val right = this(list.subList(mid, list.size))
+        val mid = target.size / 2
+        val left = this(target.subList(0, mid))
+        val right = this(target.subList(mid, target.size))
 
         return merge(left, right)
     }
