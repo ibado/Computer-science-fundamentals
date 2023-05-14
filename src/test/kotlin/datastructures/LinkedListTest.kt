@@ -53,4 +53,35 @@ class LinkedListTest {
 
         assertEquals("[4 -> 3 -> 2 -> 1]", linkedList.toString())
     }
+
+    @Test
+    fun `get element index 3 should work`() {
+
+        linkedList.add(1)
+        linkedList.add(2)
+        linkedList.add(3)
+        linkedList.add(4)
+
+        val third = linkedList[3]
+
+        assertEquals(4, third)
+    }
+
+    @Test
+    fun `get element index 3 should throw IndexOutOfBound`() {
+
+        linkedList.add(1)
+        linkedList.add(2)
+        linkedList.add(3)
+
+        try {
+            linkedList[3]
+            fail("should've thrown an IndexOutOfBoundException")
+        } catch (t: Throwable) {
+            when (t) {
+                !is IndexOutOfBoundsException -> fail("should've thrown an IndexOutOfBoundException")
+                else -> Unit // it works
+            }
+        }
+    }
 }

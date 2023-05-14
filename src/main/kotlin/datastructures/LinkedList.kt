@@ -1,11 +1,17 @@
 package datastructures
 
-class LinkedList<T> {
+class LinkedList<T> : AbstractList<T>() {
 
     private var head: Node<T>? = null
 
-    var size = 0
+    override var size = 0
     private set
+
+    override fun get(index: Int): T {
+        var curr = head
+        for (element in 0 until index) curr = curr?.next
+        return curr?.value ?: throw IndexOutOfBoundsException()
+    }
 
     fun add(newValue: T) {
         val newNode = Node(newValue)
