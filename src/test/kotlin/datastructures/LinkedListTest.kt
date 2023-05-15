@@ -84,4 +84,18 @@ class LinkedListTest {
             }
         }
     }
+
+    @Test
+    fun `remove element 3 should work`() {
+
+        linkedList.add(1)
+        linkedList.add(2)
+        linkedList.add(3)
+        linkedList.add(4)
+
+        linkedList.remove(4)
+
+        assertEquals(3, linkedList.size)
+        assertEquals(false, linkedList.contains(4))
+    }
 }

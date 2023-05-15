@@ -24,6 +24,24 @@ class LinkedList<T> : AbstractList<T>() {
         size++
     }
 
+    fun remove(element: T): Boolean {
+        var prev: Node<T>? = null
+        var curr = head
+        while (curr != null) {
+            if (curr.value == element) {
+                if (prev == null) head = curr.next
+                else prev.next = curr.next
+                size--
+                return true
+            } else {
+                prev = curr
+                curr = curr.next
+            }
+        }
+
+        return false
+    }
+
     fun reverse() {
         if (head == null || head?.next == null) return
         var p1 = head
